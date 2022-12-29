@@ -21,7 +21,7 @@ export class AddPaisComponent implements OnInit {
 
   savePais(): void {
     const data = {
-      title: this.pais.nome
+      nome: this.pais.nome
     };
 
     this.paisService.create(data)
