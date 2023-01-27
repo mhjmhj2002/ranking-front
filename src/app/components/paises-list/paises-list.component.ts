@@ -9,10 +9,15 @@ import { PaisService } from 'src/app/services/pais.service';
 })
 export class PaisesListComponent implements OnInit {
 
-  paises?: Pais[];
+  paises: Pais[] = [];
   currentPais: Pais = {};
   currentIndex = -1;
   nome = '';
+
+  page = 1;
+  count = 0;
+  pageSize = 5;
+  pageSizes = [5,10, 50];
 
   constructor(private paisService: PaisService) { }
 
@@ -20,15 +25,52 @@ export class PaisesListComponent implements OnInit {
     this.retrievePaises();
   }
 
+  getRequestParams(searchNome: string, page: number, pageSize: number): any {
+    let params: any = {};
+
+    if (searchNome) {
+      params['nome'] = searchNome;
+    }
+
+    if (page) {
+      params['page'] = page - 1;
+    }
+
+    if (pageSize) {
+      params['size'] = pageSize;
+    }
+
+    return params;
+  }
+
   retrievePaises(): void {
-    this.paisService.getAll()
+    const params = this.getRequestParams(this.nome, this.page, this.pageSize);
+
+    this.paisService.getAll(params)
       .subscribe({
         next: (data) => {
-          this.paises = data;
+          const { paises, totalItems } = data;
+          this.paises = paises;
+          this.count = totalItems;
+          console.log('data:');
           console.log(data);
         },
-        error: (e) => console.error(e)
+        error: (err) => {
+          console.log('erro:');
+          console.log(err);
+        }
       });
+  }
+
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.retrievePaises();
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.retrievePaises();
   }
 
   refreshList(): void {
@@ -45,27 +87,20 @@ export class PaisesListComponent implements OnInit {
   removeAllPaises(): void {
     this.paisService.deleteAll()
       .subscribe({
-        next: (res) => {
+        next: res => {
           console.log(res);
           this.refreshList();
         },
-        error: (e) => console.error(e)
+        error: err => {
+          console.log(err);
+        }
       });
+
   }
 
   searchNome(): void {
-    this.currentPais = {};
-    this.currentIndex = -1;
-
-    this.paisService.findByNome(this.nome)
-      .subscribe({
-        next: (data) => {
-          this.paises = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
+    this.page = 1;
+    this.retrievePaises();
   }
-
 
 }

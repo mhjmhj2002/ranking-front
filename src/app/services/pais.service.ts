@@ -10,10 +10,11 @@ const baseUrl = 'http://localhost:8080/ranking/pais/paises';
 })
 export class PaisService {
 
+  
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Pais[]> {
-    return this.http.get<Pais[]>(baseUrl);
+  getAll(params: any): Observable<any> {
+    return this.http.get<any>(baseUrl, { params });
   }
 
   get(id: any): Observable<Pais> {
@@ -36,7 +37,7 @@ export class PaisService {
     return this.http.delete(baseUrl);
   }
 
-  findByNome(nome: any): Observable<Pais[]> {
+  findByPais(nome: any): Observable<Pais[]> {
     return this.http.get<Pais[]>(`${baseUrl}?nome=${nome}`);
   }
 }
