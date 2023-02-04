@@ -49,9 +49,9 @@ export class PaisesListComponent implements OnInit {
     this.paisService.getAll(params)
       .subscribe({
         next: (data) => {
-          const { paises, totalItems } = data;
-          this.paises = paises;
-          this.count = totalItems;
+          const { content, totalElements } = data;
+          this.paises = content;
+          this.count = totalElements;
           console.log('data:');
           console.log(data);
         },
