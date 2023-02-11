@@ -17,7 +17,7 @@ export class PaisesListComponent implements OnInit {
   page = 1;
   count = 0;
   pageSize = 5;
-  pageSizes = [5,10, 50];
+  pageSizes = [5,10,50,100];
 
   constructor(private paisService: PaisService) { }
 

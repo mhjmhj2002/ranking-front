@@ -1,71 +1,56 @@
 <div class="list row">
+
+  <div class="col-md-8 fixed-top">
+    <app-pais-details [viewMode]="true" [currentPais]="currentPais"></app-pais-details>
+  </div>
+
   <div class="col-md-8">
     <div class="input-group mb-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search by nome"
-        [(ngModel)]="nome"
-      />
+      <input type="text" class="form-control" placeholder="Buscar por nome" [(ngModel)]="nome" />
       <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          (click)="searchNome()"
-        >
-          Search
+        <button class="btn btn-outline-secondary" type="button" (click)="searchNome()">
+          Busca
         </button>
       </div>
     </div>
   </div>
 
-  <div class="col-md-12">
-    <pagination-controls
-      previousLabel="Prev"
-      nextLabel="Next"
-      [responsive]="true"
-      (pageChange)="handlePageChange($event)"
-    ></pagination-controls>
+  <div class="col-md-8">
+    <button class="btn btn-sm btn-primary float-right" (click)="removeAllPaises()">Novo</button>
   </div>
 
-  <div class="col-md-6">
-    <h4>Paises List</h4>
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      Items por Página: 
+      <select class="selectpicker" data-style="btn-primary" (change)="handlePageSizeChange($event)">
+        <option *ngFor="let size of pageSizes" [ngValue]="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div>
+      <pagination-controls previousLabel="Anterior" nextLabel="Próximo" [responsive]="true"
+      (pageChange)="handlePageChange($event)"></pagination-controls>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <h4>Paises</h4>
     <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="
+      <li class="list-group-item" *ngFor="
           let pais of paises | paginate : {
                   itemsPerPage: pageSize,
                   currentPage: page,
                   totalItems: count
                 };
           let i = index
-        "
-        [class.active]="i == currentIndex"
-        (click)="setActivePais(pais, i)"
-      >
+        " [class.active]="i == currentIndex" (click)="setActivePais(pais, i)">
         {{ pais.nome }}
       </li>
     </ul>
   </div>
 
-  <div class="col-md-6">
-    <app-pais-details
-      [viewMode]="true"
-      [currentPais]="currentPais"
-    ></app-pais-details>
-  </div>
-
-  <div class="mt-3">
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllPaises()">
-      Remove All
-    </button>
-
-    Items per Page:
-    <select (change)="handlePageSizeChange($event)">
-      <option *ngFor="let size of pageSizes" [ngValue]="size">
-        {{ size }}
-      </option>
-    </select>
-  </div>
 </div>
