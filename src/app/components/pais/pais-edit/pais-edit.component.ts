@@ -2,51 +2,51 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpProviderService } from '../../../service/employee.service';
+import { HttpProviderService } from '../../../service/pais.service';
 
 @Component({
-  selector: 'app-edit-employee',
-  templateUrl: './employee-edit.component.html',
-  styleUrls: ['./employee-edit.component.scss']
+  selector: 'app-edit-pais',
+  templateUrl: './pais-edit.component.html',
+  styleUrls: ['./pais-edit.component.scss']
 })
-export class EditEmployeeComponent implements OnInit {
-  editEmployeeForm: employeeForm = new employeeForm();
+export class EditPaisComponent implements OnInit {
+  editPaisForm: paisForm = new paisForm();
 
-  @ViewChild("employeeForm")
-  employeeForm!: NgForm;
+  @ViewChild("paisForm")
+  paisForm!: NgForm;
 
   isSubmitted: boolean = false;
-  employeeId: any;
+  paisId: any;
 
   constructor(private toastr: ToastrService, private route: ActivatedRoute, private router: Router,
     private httpProvider: HttpProviderService) { }
 
   ngOnInit(): void {
-    this.employeeId = this.route.snapshot.params['employeeId'];
-    this.getEmployeeDetailById();
+    this.paisId = this.route.snapshot.params['paisId'];
+    this.getPaisDetailById();
   }
 
-  getEmployeeDetailById() {
-    this.httpProvider.getEmployeeDetailById(this.employeeId).subscribe((data: any) => {
+  getPaisDetailById() {
+    this.httpProvider.getPaisDetailById(this.paisId).subscribe((data: any) => {
       if (data != null && data.body != null) {
         var resultData = data.body;
         if (resultData) {
-          this.editEmployeeForm.Id = resultData.id;
-          this.editEmployeeForm.FirstName = resultData.firstName;
-          this.editEmployeeForm.LastName = resultData.lastName;
-          this.editEmployeeForm.Email = resultData.email;
-          this.editEmployeeForm.Address = resultData.address;
-          this.editEmployeeForm.Phone = resultData.phone;
+          this.editPaisForm.Id = resultData.id;
+          this.editPaisForm.FirstName = resultData.firstName;
+          this.editPaisForm.LastName = resultData.lastName;
+          this.editPaisForm.Email = resultData.email;
+          this.editPaisForm.Address = resultData.address;
+          this.editPaisForm.Phone = resultData.phone;
         }
       }
     },
       (error: any) => { });
   }
 
-  EditEmployee(isValid: any) {
+  EditPais(isValid: any) {
     this.isSubmitted = true;
     if (isValid) {
-      this.httpProvider.saveEmployee(this.editEmployeeForm).subscribe(async data => {
+      this.httpProvider.savePais(this.editPaisForm).subscribe(async data => {
         if (data != null && data.body != null) {
           var resultData = data.body;
           if (resultData != null && resultData.isSuccess) {
@@ -69,7 +69,7 @@ export class EditEmployeeComponent implements OnInit {
   }
 }
 
-export class employeeForm {
+export class paisForm {
   Id: number = 0;
   FirstName: string = "";
   LastName: string = "";

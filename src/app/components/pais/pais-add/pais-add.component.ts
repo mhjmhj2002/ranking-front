@@ -2,18 +2,18 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpProviderService } from '../../../service/employee.service';
+import { HttpProviderService } from '../../../service/pais.service';
 
 @Component({
-  selector: 'app-add-employee',
-  templateUrl: './employee-add.component.html',
-  styleUrls: ['./employee-add.component.scss']
+  selector: 'app-add-pais',
+  templateUrl: './pais-add.component.html',
+  styleUrls: ['./pais-add.component.scss']
 })
-export class AddEmployeeComponent implements OnInit {
-  addEmployeeForm: employeeForm = new employeeForm();
+export class AddPaisComponent implements OnInit {
+  addPaisForm: paisForm = new paisForm();
 
-  @ViewChild("employeeForm")
-  employeeForm!: NgForm;
+  @ViewChild("paisForm")
+  paisForm!: NgForm;
 
   isSubmitted: boolean = false;
 
@@ -22,10 +22,10 @@ export class AddEmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  AddEmployee(isValid: any) {
+  AddPais(isValid: any) {
     this.isSubmitted = true;
     if (isValid) {
-      this.httpProvider.saveEmployee(this.addEmployeeForm).subscribe(async data => {
+      this.httpProvider.savePais(this.addPaisForm).subscribe(async data => {
         if (data != null && data.body != null) {
           if (data != null && data.body != null) {
             var resultData = data.body;
@@ -49,7 +49,7 @@ export class AddEmployeeComponent implements OnInit {
 
 }
 
-export class employeeForm {
+export class paisForm {
   FirstName: string = "";
   LastName: string = "";
   Email: string = "";

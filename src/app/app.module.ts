@@ -7,6 +7,12 @@ import { EmployeeListComponent } from './components/employee/employee-list/emplo
 import { ViewEmployeeComponent } from './components/employee/employee-view/employee-view.component';
 import { AddEmployeeComponent } from './components/employee/employee-add/employee-add.component';
 import { EditEmployeeComponent } from './components/employee/employee-edit/employee-edit.component';
+
+import { PaisListComponent } from './components/pais/pais-list/pais-list.component';
+import { ViewPaisComponent } from './components/pais/pais-view/pais-view.component';
+import { AddPaisComponent } from './components/pais/pais-add/pais-add.component';
+import { EditPaisComponent } from './components/pais/pais-edit/pais-edit.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -19,7 +25,12 @@ import { ToastrModule } from 'ngx-toastr';
     EmployeeListComponent,
     ViewEmployeeComponent,
     AddEmployeeComponent,
-    EditEmployeeComponent
+    EditEmployeeComponent,
+    
+    PaisListComponent,
+    ViewPaisComponent,
+    AddPaisComponent,
+    EditPaisComponent
   ],
   imports: [
     BrowserModule,

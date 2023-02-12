@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpProviderService } from '../../../service/http-provider.service';
+import { HttpProviderService } from '../../../service/employee.service';
 import { WebApiService } from '../../../service/web-api.service';
 
 @Component({

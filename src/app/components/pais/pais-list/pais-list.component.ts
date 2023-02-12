@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { HttpProviderService } from '../../../service/employee.service';
+import { HttpProviderService } from '../../../service/pais.service';
 
 @Component({
   selector: 'ng-modal-confirm',
@@ -32,25 +32,25 @@ const MODALS: { [name: string]: Type<any> } = {
 
 @Component({
   selector: 'app-home',
-  templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.scss']
+  templateUrl: './pais-list.component.html',
+  styleUrls: ['./pais-list.component.scss']
 })
-export class EmployeeListComponent implements OnInit {
+export class PaisListComponent implements OnInit {
   closeResult = '';
-  employeeList: any = [];
+  paisList: any = [];
   constructor(private router: Router, private modalService: NgbModal,
     private toastr: ToastrService, private httpProvider : HttpProviderService) { }
 
   ngOnInit(): void {
-    this.getAllEmployee();
+    this.getAllPais();
   }
 
-  async getAllEmployee() {
-    this.httpProvider.getAllEmployee().subscribe((data : any) => {
+  async getAllPais() {
+    this.httpProvider.getAllPais().subscribe((data : any) => {
       if (data != null && data.body != null) {
         var resultData = data.body;
         if (resultData) {
-          this.employeeList = resultData;
+          this.paisList = resultData;
         }
       }
     },
@@ -58,34 +58,34 @@ export class EmployeeListComponent implements OnInit {
         if (error) {
           if (error.status == 404) {
             if(error.error && error.error.message){
-              this.employeeList = [];
+              this.paisList = [];
             }
           }
         }
       });
   }
 
-  AddEmployee() {
-    this.router.navigate(['AddEmployee']);
+  AddPais() {
+    this.router.navigate(['AddPais']);
   }
 
-  deleteEmployeeConfirmation(employee: any) {
+  deletePaisConfirmation(pais: any) {
     this.modalService.open(MODALS['deleteModal'],
       {
         ariaLabelledBy: 'modal-basic-title'
       }).result.then((result) => {
-        this.deleteEmployee(employee);
+        this.deletePais(pais);
       },
         (reason) => {});
   }
 
-  deleteEmployee(employee: any) {
-    this.httpProvider.deleteEmployeeById(employee.id).subscribe((data : any) => {
+  deletePais(pais: any) {
+    this.httpProvider.deletePaisById(pais.id).subscribe((data : any) => {
       if (data != null && data.body != null) {
         var resultData = data.body;
         if (resultData != null && resultData.isSuccess) {
           this.toastr.success(resultData.message);
-          this.getAllEmployee();
+          this.getAllPais();
         }
       }
     },
