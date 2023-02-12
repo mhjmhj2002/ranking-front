@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { HttpProviderService } from '../service/http-provider.service';
+import { HttpProviderService } from '../../../service/http-provider.service';
 
 @Component({
   selector: 'ng-modal-confirm',
@@ -32,10 +32,10 @@ const MODALS: { [name: string]: Type<any> } = {
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './employee-list.component.html',
+  styleUrls: ['./employee-list.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class EmployeeListComponent implements OnInit {
   closeResult = '';
   employeeList: any = [];
   constructor(private router: Router, private modalService: NgbModal,
@@ -91,4 +91,5 @@ export class HomeComponent implements OnInit {
     },
     (error : any) => {});
   }
+
 }

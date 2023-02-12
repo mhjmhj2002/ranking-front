@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpProviderService } from '../service/http-provider.service';
-import { WebApiService } from '../service/web-api.service';
+import { HttpProviderService } from '../../../service/http-provider.service';
+import { WebApiService } from '../../../service/web-api.service';
 
 @Component({
   selector: 'app-view-employee',
-  templateUrl: './view-employee.component.html',
-  styleUrls: ['./view-employee.component.scss']
+  templateUrl: './employee-view.component.html',
+  styleUrls: ['./employee-view.component.scss']
 })
 export class ViewEmployeeComponent implements OnInit {
 
