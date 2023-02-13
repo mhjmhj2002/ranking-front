@@ -32,7 +32,7 @@ export class AddEmployeeComponent implements OnInit {
             if (resultData != null && resultData.isSuccess) {
               this.toastr.success(resultData.message);
               setTimeout(() => {
-                this.router.navigate(['/Home']);
+                this.router.navigate(['/EmployeeList']);
               }, 500);
             }
           }
@@ -41,7 +41,7 @@ export class AddEmployeeComponent implements OnInit {
         async error => {
           this.toastr.error(error.message);
           setTimeout(() => {
-            this.router.navigate(['/Home']);
+            this.router.navigate(['/EmployeeList']);
           }, 500);
         });
     }

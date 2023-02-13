@@ -12,7 +12,7 @@ import { ViewPaisComponent } from './components/pais/pais-view/pais-view.compone
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
-  { path: 'Home', component: EmployeeListComponent },
+  { path: 'EmployeeList', component: EmployeeListComponent },
   { path: 'ViewEmployee/:employeeId', component: ViewEmployeeComponent },
   { path: 'AddEmployee', component: AddEmployeeComponent },
   { path: 'EditEmployee/:employeeId', component: EditEmployeeComponent },

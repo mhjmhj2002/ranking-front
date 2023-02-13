@@ -31,12 +31,8 @@ export class EditPaisComponent implements OnInit {
       if (data != null && data.body != null) {
         var resultData = data.body;
         if (resultData) {
-          this.editPaisForm.Id = resultData.id;
-          this.editPaisForm.FirstName = resultData.firstName;
-          this.editPaisForm.LastName = resultData.lastName;
-          this.editPaisForm.Email = resultData.email;
-          this.editPaisForm.Address = resultData.address;
-          this.editPaisForm.Phone = resultData.phone;
+          this.editPaisForm.id = resultData.id;
+          this.editPaisForm.nome = resultData.firstName;
         }
       }
     },
@@ -53,7 +49,7 @@ export class EditPaisComponent implements OnInit {
             if (resultData != null && resultData.isSuccess) {
               this.toastr.success(resultData.message);
               setTimeout(() => {
-                this.router.navigate(['/Home']);
+                this.router.navigate(['/PaisList']);
               }, 500);
             }
           }
@@ -62,7 +58,7 @@ export class EditPaisComponent implements OnInit {
         async error => {
           this.toastr.error(error.message);
           setTimeout(() => {
-            this.router.navigate(['/Home']);
+            this.router.navigate(['/PaisList']);
           }, 500);
         });
     }
@@ -70,10 +66,6 @@ export class EditPaisComponent implements OnInit {
 }
 
 export class paisForm {
-  Id: number = 0;
-  FirstName: string = "";
-  LastName: string = "";
-  Email: string = "";
-  Address: string = "";
-  Phone: string = "";
+  id: number = 0;
+  nome: string = "";
 }

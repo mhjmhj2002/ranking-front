@@ -32,7 +32,7 @@ export class AddPaisComponent implements OnInit {
             if (resultData != null && resultData.isSuccess) {
               this.toastr.success(resultData.message);
               setTimeout(() => {
-                this.router.navigate(['/Home']);
+                this.router.navigate(['/PaisList']);
               }, 500);
             }
           }
@@ -41,7 +41,7 @@ export class AddPaisComponent implements OnInit {
         async error => {
           this.toastr.error(error.message);
           setTimeout(() => {
-            this.router.navigate(['/Home']);
+            this.router.navigate(['/PaisList']);
           }, 500);
         });
     }
@@ -50,9 +50,6 @@ export class AddPaisComponent implements OnInit {
 }
 
 export class paisForm {
-  FirstName: string = "";
-  LastName: string = "";
-  Email: string = "";
-  Address: string = "";
-  Phone: string = "";
+  id: number = 0;
+  nome: string = "";
 }
