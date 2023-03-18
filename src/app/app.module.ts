@@ -13,6 +13,11 @@ import { ViewPaisComponent } from './components/pais/pais-view/pais-view.compone
 import { AddPaisComponent } from './components/pais/pais-add/pais-add.component';
 import { EditPaisComponent } from './components/pais/pais-edit/pais-edit.component';
 
+import { EquipeListComponent } from './components/equipe/equipe-list/equipe-list.component';
+import { ViewEquipeComponent } from './components/equipe/equipe-view/equipe-view.component';
+import { AddEquipeComponent } from './components/equipe/equipe-add/equipe-add.component';
+import { EditEquipeComponent } from './components/equipe/equipe-edit/equipe-edit.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -30,7 +35,12 @@ import { ToastrModule } from 'ngx-toastr';
     PaisListComponent,
     ViewPaisComponent,
     AddPaisComponent,
-    EditPaisComponent
+    EditPaisComponent,
+    
+    EquipeListComponent,
+    ViewEquipeComponent,
+    AddEquipeComponent,
+    EditEquipeComponent
   ],
   imports: [
     BrowserModule,

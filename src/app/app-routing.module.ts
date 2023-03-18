@@ -10,6 +10,11 @@ import { EditPaisComponent } from './components/pais/pais-edit/pais-edit.compone
 import { PaisListComponent } from './components/pais/pais-list/pais-list.component';
 import { ViewPaisComponent } from './components/pais/pais-view/pais-view.component';
 
+import { AddEquipeComponent } from './components/equipe/equipe-add/equipe-add.component';
+import { EditEquipeComponent } from './components/equipe/equipe-edit/equipe-edit.component';
+import { EquipeListComponent } from './components/equipe/equipe-list/equipe-list.component';
+import { ViewEquipeComponent } from './components/equipe/equipe-view/equipe-view.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
   { path: 'EmployeeList', component: EmployeeListComponent },
@@ -20,7 +25,12 @@ const routes: Routes = [
   { path: 'PaisList', component: PaisListComponent },
   { path: 'ViewPais/:paisId', component: ViewPaisComponent },
   { path: 'AddPais', component: AddPaisComponent },
-  { path: 'EditPais/:paisId', component: EditPaisComponent } 
+  { path: 'EditPais/:paisId', component: EditPaisComponent } ,
+  
+  { path: 'EquipeList', component: EquipeListComponent },
+  { path: 'ViewEquipe/:equipeId', component: ViewEquipeComponent },
+  { path: 'AddEquipe', component: AddEquipeComponent },
+  { path: 'EditEquipe/:equipeId', component: EditEquipeComponent } 
 ];
   
 
