@@ -18,6 +18,11 @@ import { ViewEquipeComponent } from './components/equipe/equipe-view/equipe-view
 import { AddEquipeComponent } from './components/equipe/equipe-add/equipe-add.component';
 import { EditEquipeComponent } from './components/equipe/equipe-edit/equipe-edit.component';
 
+import { FaseListComponent } from './components/fase/fase-list/fase-list.component';
+import { ViewFaseComponent } from './components/fase/fase-view/fase-view.component';
+import { AddFaseComponent } from './components/fase/fase-add/fase-add.component';
+import { EditFaseComponent } from './components/fase/fase-edit/fase-edit.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -40,7 +45,12 @@ import { ToastrModule } from 'ngx-toastr';
     EquipeListComponent,
     ViewEquipeComponent,
     AddEquipeComponent,
-    EditEquipeComponent
+    EditEquipeComponent,
+    
+    FaseListComponent,
+    ViewFaseComponent,
+    AddFaseComponent,
+    EditFaseComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,11 @@ import { EditEquipeComponent } from './components/equipe/equipe-edit/equipe-edit
 import { EquipeListComponent } from './components/equipe/equipe-list/equipe-list.component';
 import { ViewEquipeComponent } from './components/equipe/equipe-view/equipe-view.component';
 
+import { AddFaseComponent } from './components/fase/fase-add/fase-add.component';
+import { EditFaseComponent } from './components/fase/fase-edit/fase-edit.component';
+import { FaseListComponent } from './components/fase/fase-list/fase-list.component';
+import { ViewFaseComponent } from './components/fase/fase-view/fase-view.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
   { path: 'EmployeeList', component: EmployeeListComponent },
@@ -30,7 +35,12 @@ const routes: Routes = [
   { path: 'EquipeList', component: EquipeListComponent },
   { path: 'ViewEquipe/:equipeId', component: ViewEquipeComponent },
   { path: 'AddEquipe', component: AddEquipeComponent },
-  { path: 'EditEquipe/:equipeId', component: EditEquipeComponent } 
+  { path: 'EditEquipe/:equipeId', component: EditEquipeComponent },
+  
+  { path: 'FaseList', component: FaseListComponent },
+  { path: 'ViewFase/:faseId', component: ViewFaseComponent },
+  { path: 'AddFase', component: AddFaseComponent },
+  { path: 'EditFase/:faseId', component: EditFaseComponent } 
 ];
   
 

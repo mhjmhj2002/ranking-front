@@ -16,10 +16,10 @@
         </div>
         <div class="row">
           <div class="col-sm-6">
-            <h4><b>Equipes</b></h4>
+            <h4><b>Prorrogacaoes</b></h4>
           </div>
           <div class="col-sm-6">
-            <button class="btn btn-success" (click)="AddEquipe()">
+            <button class="btn btn-success" (click)="AddProrrogacao()">
               <i class='fas fa-plus-circle'></i><span> ADD</span>
             </button>
           </div>
@@ -33,18 +33,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let equipe of equipeList" class="center-align">
-            <td>{{ equipe.id }}</td>
-            <td>{{ equipe.nome }}</td>
+          <tr *ngFor="let prorrogacao of prorrogacaoList" class="center-align">
+            <td>{{ prorrogacao.id }}</td>
+            <td>{{ prorrogacao.nome }}</td>
             <td>
-              <a href="#" [routerLink]="['/ViewEquipe/', equipe.id]" class="btn"><i class='fas fa-eye view'></i></a>
-              <a href="#" [routerLink]="['/EditEquipe/', equipe.id]" class="btn"><i class="fa fa-edit edit"></i></a>
-              <button type="button" (click)="deleteEquipeConfirmation(equipe)" class="btn"><i
+              <a href="#" [routerLink]="['/ViewProrrogacao/', prorrogacao.id]" class="btn"><i class='fas fa-eye view'></i></a>
+              <a href="#" [routerLink]="['/EditProrrogacao/', prorrogacao.id]" class="btn"><i class="fa fa-edit edit"></i></a>
+              <button type="button" (click)="deleteProrrogacaoConfirmation(prorrogacao)" class="btn"><i
                   class='fas fa-trash-alt delete'></i></button>
             </td>
           </tr>
           <tr>
-            <td *ngIf="equipeList.length == 0" colspan="6">No Equipe Found</td>
+            <td *ngIf="prorrogacaoList.length == 0" colspan="6">No Prorrogacao Found</td>
           </tr>
         </tbody>
       </table>

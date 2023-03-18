@@ -16,10 +16,10 @@
         </div>
         <div class="row">
           <div class="col-sm-6">
-            <h4><b>Equipes</b></h4>
+            <h4><b>Grupoes</b></h4>
           </div>
           <div class="col-sm-6">
-            <button class="btn btn-success" (click)="AddEquipe()">
+            <button class="btn btn-success" (click)="AddGrupo()">
               <i class='fas fa-plus-circle'></i><span> ADD</span>
             </button>
           </div>
@@ -33,18 +33,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let equipe of equipeList" class="center-align">
-            <td>{{ equipe.id }}</td>
-            <td>{{ equipe.nome }}</td>
+          <tr *ngFor="let grupo of grupoList" class="center-align">
+            <td>{{ grupo.id }}</td>
+            <td>{{ grupo.nome }}</td>
             <td>
-              <a href="#" [routerLink]="['/ViewEquipe/', equipe.id]" class="btn"><i class='fas fa-eye view'></i></a>
-              <a href="#" [routerLink]="['/EditEquipe/', equipe.id]" class="btn"><i class="fa fa-edit edit"></i></a>
-              <button type="button" (click)="deleteEquipeConfirmation(equipe)" class="btn"><i
+              <a href="#" [routerLink]="['/ViewGrupo/', grupo.id]" class="btn"><i class='fas fa-eye view'></i></a>
+              <a href="#" [routerLink]="['/EditGrupo/', grupo.id]" class="btn"><i class="fa fa-edit edit"></i></a>
+              <button type="button" (click)="deleteGrupoConfirmation(grupo)" class="btn"><i
                   class='fas fa-trash-alt delete'></i></button>
             </td>
           </tr>
           <tr>
-            <td *ngIf="equipeList.length == 0" colspan="6">No Equipe Found</td>
+            <td *ngIf="grupoList.length == 0" colspan="6">No Grupo Found</td>
           </tr>
         </tbody>
       </table>
