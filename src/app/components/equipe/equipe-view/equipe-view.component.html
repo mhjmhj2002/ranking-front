@@ -1,0 +1,63 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>View Equipe</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/EquipeList" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i> &nbsp;Back</a>
+          </div>
+        </div>
+      </div>       
+      <table class="table table-striped table-hover table-bordered table-content">
+        <tbody>
+          <tr>
+            <td>
+              <label><b>Id</b></label>
+            </td>
+            <td>
+              <span>{{ equipeDetail.id }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Nome</b></label>
+            </td>
+            <td>
+              <span>{{ equipeDetail.nome }}</span>              
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label><b>Email</b></label>
+            </td>
+            <td>
+              <span>{{ equipeDetail.email }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Address</b></label>
+            </td>
+            <td>
+              <span>{{ equipeDetail.address }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Phone</b></label>
+            </td>
+            <td>
+              <span>{{ equipeDetail.phone }}</span>              
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>       
+    </div>
+  </div>
+</div>
+
